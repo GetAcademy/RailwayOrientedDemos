@@ -13,13 +13,13 @@ namespace RailwayOrientedDemos.Demo3Adapt
 
             Func<
                 Func<       int,  Result<int>>,
-                Func<Result<int>, Result<int>>> adapt =
+                Func<Result<int>, Result<int>>> bind =
                 oneTrackInputFunction => 
                     twoTrackInput => 
                         twoTrackInput is Success<int> input ? oneTrackInputFunction(input.Result) 
                             : null!;
 
-            var twoTrackInputVersionOfDivideByN = adapt(divide1000byN);
+            var twoTrackInputVersionOfDivideByN = bind(divide1000byN);
         }
 
         /*
