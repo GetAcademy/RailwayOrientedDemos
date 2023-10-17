@@ -1,13 +1,13 @@
 ﻿using RailwayOrientedDemos.Demo1Result;
 
-namespace RailwayOrientedDemos
+namespace RailwayOrientedDemos.Demo4Validate
 {
     class Contact
     {
         public string Name;
         public string Email;
     }
-    internal class Demo4Validate
+    internal class Demo
     {
         public static void Run()
         {
