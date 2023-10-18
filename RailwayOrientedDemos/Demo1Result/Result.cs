@@ -1,6 +1,12 @@
 ﻿namespace RailwayOrientedDemos.Demo1Result
 {
-    class Result<T>
+    /*
+     * F#
+     * type Result =
+     *   | Success
+     *   | Failure
+     */
+    abstract class Result<T>
     {
     }
 

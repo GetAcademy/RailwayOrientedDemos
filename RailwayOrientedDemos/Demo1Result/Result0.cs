@@ -1,4 +1,4 @@
-﻿namespace RailwayOrientedDemos.Demo1Result.Ignore
+﻿namespace RailwayOrientedDemos.Demo1Result
 {
     class Result
     {

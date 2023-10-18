@@ -1,6 +1,6 @@
 ﻿using RailwayOrientedDemos.Demo1Result;
 
-namespace RailwayOrientedDemos.Demo3Adapt
+namespace RailwayOrientedDemos.Demo4Adapt
 {
     internal class Demo
     {
