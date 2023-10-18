@@ -9,6 +9,7 @@
             if (!locationResult.IsSuccess)
             {
                 // handle error
+                return;
             }
 
             var location = (Location)((Success)locationResult).Result;
@@ -16,6 +17,7 @@
             if (!addressResult.IsSuccess)
             {
                 // handle error
+                return;
             }
 
             var address = (Address)((Success)addressResult).Result;
@@ -23,6 +25,7 @@
             if (!addressInfoResult.IsSuccess)
             {
                 // handle error
+                // return;
             }
             var addressInfo = (AddressInfo)((Success)addressInfoResult).Result;
 

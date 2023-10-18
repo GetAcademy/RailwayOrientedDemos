@@ -1,6 +1,7 @@
 ﻿using RailwayOrientedDemos.Demo1Result;
+using RailwayOrientedDemos.Demo2Composition;
 
-namespace RailwayOrientedDemos.Demo4Validate
+namespace RailwayOrientedDemos.Demo3Validate
 {
     class Contact
     {
@@ -11,13 +12,18 @@ namespace RailwayOrientedDemos.Demo4Validate
     {
         public static void Run()
         {
+            Action<string, float> actiona = Dummy3;
+            Func<string, int> funcx = Dummy;
+            Func<string, float, int> funcy = Dummy2;
+
             Func<
-                Func<Contact, Result<Contact>>,
-                Func<Result<Contact>, Result<Contact>>> bind =
+                Func<Contact, Result<Contact>>,          // single track function
+                Func<Result<Contact>, Result<Contact>>>  // double track function
+                bind =
                 oneTrackInputFunction =>
                     twoTrackInput =>
                         twoTrackInput is Success<Contact> input ? oneTrackInputFunction(input.Result)
-                            : null!;
+                            : twoTrackInput;
 
             Func<Contact, Result<Contact>> nameNotBlank = input => input.Name == ""
                 ? new Failure<Contact>("Name must not be blank")
@@ -37,6 +43,23 @@ namespace RailwayOrientedDemos.Demo4Validate
                         nameNotBlank(contact)
                     )
                 );
+
+            var validate2 = nameNotBlank.Compose(bind(name50)).Compose(bind(emailNotBlank));
         }
+
+        static int Dummy(string x)
+        {
+            return x.Length;
+        }
+        static int Dummy2(string x, float f)
+        {
+            return x.Length;
+        }
+        
+        static void Dummy3(string x, float f)
+        {
+            return;
+        }
+
     }
 }
